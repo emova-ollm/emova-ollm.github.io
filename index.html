@@ -1,1 +1,805 @@
-TO BE DONE
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="EMOVA: Empowering Language Models to See, Hear and Speak with Vivid Emotion">
+  <meta name="keywords" content="EMOVA, omni-modal large langauge models, vision-language models, speech models, emotions, end-to-end speech">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMOVA: Empowering Language Models to See, Hear and Speak with Vivid Emotion</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icons/emova.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://kit.fontawesome.com/d3915a16e2.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+  .chat-history {
+    flex-grow: 1;
+    overflow-y: auto;
+    /* overflow-x: hidden; */
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    text-align: left; 
+  }
+
+  .chat-history1 {
+    flex-grow: 1;
+    overflow-y: auto;
+    /* overflow-x: hidden; */
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    text-align: left; 
+  }
+
+  .chat-history2 {
+    flex-grow: 1;
+    overflow-y: auto;
+    /* overflow-x: hidden; */
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    text-align: left; 
+  }
+
+</style>
+
+<body>
+
+
+  
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> <img id="teaser" width="10%" src="./static/images/icons/emova.png"> <b>EMOVA:</b>  </h1>
+          <h3 class="title is-3 publication-title"> Empowering Language Models to See, Hear and Speak </h3>
+          <h2 class="title is-3 publication-title"> with Vivid Emotion   </h2>
+
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            GPT-4o, an omni-modal model that enables vocal conversations with diverse emo-
+            tions and tones, marks a milestone for omni-modal foundation models. However,
+            empowering Large Language Models to perceive and generate images, texts, and
+            speeches end-to-end with publicly available data remains challenging in the open-
+            source community. Existing vision-language models rely on external tools for the
+            speech processing, while speech-language models still suffer from limited or even
+            without vision-understanding abilities. To address this gap, we propose EMOVA
+            (EM-otionally Omni-present Voice Assistant), to enable Large Language Models
+            with end-to-end speech capabilities while maintaining the leading vision-language
+            performance. With a semantic-acoustic disentangled speech tokenizer, we notice
+            surprisingly that omni-modal alignment can further enhance vision-language and
+            speech abilities compared with the corresponding bi-modal aligned counterparts.
+            Moreover, a lightweight style module is proposed for flexible speech style controls
+            (e.g., emotions and pitches). For the first time, EMOVA achieves state-of-the-art
+            performance on both the vision-language and speech benchmarks, and meanwhile,
+            supporting omni-modal spoken dialogue with vivid emotions.
+          </p> 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 67.7%;">
+    <!-- conflicts. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">Model architecture of EMOVA</h2>
+        <div class="teaser">
+          <img src="./static/images/flowchart.PNG"  width="800" height="800">
+        </div>  
+        <div class="content has-text-justified">
+          <p>
+            The vision encoder extracts continuous visual features, which are projected into the text embedding space as visual tokens, while the input speech is encoded and quantized into discrete units. Given the omni-modal inputs, EMOVA can generate both textual and speech responses with vivid emotional controls. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ safety persists. -->
+  </div>
+</section>
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 67.7%;">
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Video</h2>
+      </div>
+    </div>
+
+  <div class="text-center">
+      <video width="80%" controls="">
+          <source src="images/video_demo.mp4" type="video/mp4"> 
+      </video>
+  </div>
+</div>
+
+
+  <!-- <div class="container is-max-desktop"> -->
+    <!-- Method. -->
+    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 67.7%;">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-five-fifths">
+            <h2 class="title is-3">Comparison on Vision-language and Speech Benchmarks</h2>
+        <div class="teaser">
+          <img src="./static/images/exp.PNG">
+        </div>  
+        <div class="content has-text-justified">
+          <p>
+            1. EMOVA surpasses GPT-4V and Gemini Pro 1.5 on 10 of 14 vision-language benchmarks, while reaching over 95% of GPT-4o performance on nearly all benchmarks. <br>
+            2. EMOVA achieves state-of-the-art performance on the ASR task, surpassing its speech counterparts by a significant margin. <br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<section class="section" style="background-color: #d2cece20;">
+
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-4"> Examples in Emotional Spoken Dialogues</h2>
+    </div>
+  </div>
+  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 67.7%;">
+
+    <div class="table-responsive pt-3">
+      <table class="table table-hover pt-2">
+      <thead>
+      <tr>
+            <th style="text-align: center">User</th>
+            <th style="text-align: center">Transcript</th>
+            <th style="text-align: center">Emova</th>
+            <th style="text-align: center">Transcript</th>
+      </tr>
+      </thead>
+      <tbody>
+            <tr>
+              <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 140px;"><source src="./static/audios/emo/parent_user.wav" autoplay="">Your browser does not support the audio element.</audio></td>
+              <td style="text-align: center;vertical-align:middle;width: 800px">Imagine you are a parent who is angry at their teenage daughter for coming home past curfew.</td>
+              <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 140px;"><source src="./static/audios/emo/parent_emova.wav" autoplay="">Your browser does not support the audio element.</audio></td>
+              <td style="text-align: center;vertical-align:middle;width: 800px">I am absolutely furious with you! Coming home past curfew is completely unacceptable! Do you have any idea how dangerous it is to be out late? This is not a joke! You need to understand the consequences of your actions. I am very disappointed in you!</td>
+            </tr>
+
+            <tr>
+              <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 140px;"><source src="./static/audios/emo/wedding_user.wav" autoplay="">Your browser does not support the audio element.</audio></td>
+              <td style="text-align: center;vertical-align:middle;width: 800px">为即将结婚的朋友送上祝福。</td>
+              <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 140px;"><source src="./static/audios/emo/wedding_emova.wav" autoplay="">Your browser does not support the audio element.</audio></td>
+              <td style="text-align: center;vertical-align:middle;width: 800px">祝福你们，愿你们的爱情如晨曦般温暖，永不熄灭，愿你们的婚姻如同繁花似锦，绚烂夺目，愿你们的生活如同诗篇，甜蜜无比，愿你们的未来充满欢笑与喜悦，永远幸福美满！</td>
+            </tr>
+  
+            <tr>
+              <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 140px;"><source src="./static/audios/emo/hello_user.wav" autoplay="Your browser does not support the audio element."></audio></td>
+              <td style="text-align: center;vertical-align:middle;width: 800px">Hi, what's your name?</td>
+              <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 140px;"><source src="./static/audios/emo/hello_emova.wav" autoplay="">Your browser does not support the audio element.</audio></td>
+              <td style="text-align: center;vertical-align:middle;width: 800px">Hello, my name is EMOVA, nice to meed to you.</td>
+            </tr>
+
+            <tr>
+              <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 140px;"><source src="./static/audios/emo/sad_user.wav" autoplay="Your browser does not support the audio element."></audio></td>
+              <td style="text-align: center;vertical-align:middle;width: 800px">Hey, I'm so sad these days.</td>
+              <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 140px;"><source src="./static/audios/emo/sad_emova.wav" autoplay="">Your browser does not support the audio element.</audio></td>
+              <td style="text-align: center;vertical-align:middle;width: 800px">I'm really sorry to hear that you are feeling sad, it's important to take care of yourself during tough times. Let's talk about what's been going on and see if we can find some way to help you feel better.</td>
+            </tr>
+  
+            </tbody>
+        </table>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <!-- <h2 class="title is-4"> Examples in Emotional Spoken Dialogues</h2> -->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container mt-5">
+    <div class="form-row" style="justify-content: center;">
+      <div class="form-group col-md-1">
+        <div class="col-md-2" style="width: 100%"><label>&nbsp;</label></div>
+        <div class="btn-group" role="group" aria-label="Left and Right Controller"
+          style="width: 100%;align-items: flex-end;justify-content: center;flex-direction: row;display: flex;">
+          <button type="button" class="form-control btn btn-primary" id="prev-question"><i
+              class="material-icons">keyboard_arrow_left</i></button>
+          <button type="button" class="form-control btn btn-primary" id="next-question"><i
+              class="material-icons">keyboard_arrow_right</i></button>
+  
+        </div>
+      </div>
+    </div>
+  
+
+    <!-- Question Card -->
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="card mb-4" style="width: 80%; display: flex; align-items: center;">
+        <div class="card-body" id="selected-question" style="display: flex; height: 80vh;">
+          <div class="chat-history">
+            <!-- Add your chat messages here -->
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-4"> Examples in Omni-modal Spoken Dialogue with Structural Data Understanding</h2>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+
+
+
+
+  <div class="container mt-5">
+    <div class="form-row" style="justify-content: center;">
+      <div class="form-group col-md-1">
+        <div class="col-md-2" style="width: 100%"><label>&nbsp;</label></div>
+        <div class="btn-group" role="group" aria-label="Left and Right Controller"
+          style="width: 100%;align-items: flex-end;justify-content: center;flex-direction: row;display: flex;">
+          <button type="button" class="form-control btn btn-primary" id="prev-question1"><i
+              class="material-icons">keyboard_arrow_left</i></button>
+          <button type="button" class="form-control btn btn-primary" id="next-question1"><i
+              class="material-icons">keyboard_arrow_right</i></button>
+  
+        </div>
+      </div>
+    </div>
+  
+    <!-- Question Card -->
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="card mb-4" style="width: 80%; display: flex; align-items: center;">
+        <div class="card-body" id="selected-question1" style="display: flex; height: 80vh;">
+          <div class="chat-history1">
+            <!-- Add your chat messages here -->
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-4"> Examples in Omni-modal Emotional Spoken Dialogues</h2>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+
+  <div class="container mt-5">
+    <div class="form-row" style="justify-content: center;">
+      <div class="form-group col-md-1">
+        <div class="col-md-2" style="width: 100%"><label>&nbsp;</label></div>
+        <div class="btn-group" role="group" aria-label="Left and Right Controller"
+          style="width: 100%;align-items: flex-end;justify-content: center;flex-direction: row;display: flex;">
+          <button type="button" class="form-control btn btn-primary" id="prev-question2"><i
+              class="material-icons">keyboard_arrow_left</i></button>
+          <button type="button" class="form-control btn btn-primary" id="next-question2"><i
+              class="material-icons">keyboard_arrow_right</i></button>
+  
+        </div>
+      </div>
+    </div>
+  
+    <!-- Question Card -->
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="card mb-4" style="width: 80%; display: flex; align-items: center;">
+        <div class="card-body" id="selected-question2" style="display: flex; height: 80vh;">
+          <div class="chat-history2">
+            <!-- Add your chat messages here -->
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-4"> Examples in Advanced Vision-language Abilities</h2>
+      </div>
+    </div>
+  
+  </div>
+
+
+</section>
+
+
+
+
+<script>
+  // Handle message showing
+  function createChatRow(sender, text, imageSrc, audioSrc, transcription) {
+    var article = document.createElement("article");
+    article.className = "media"
+
+    var figure = document.createElement("figure");
+    figure.className = "media-left";
+
+    var span = document.createElement("span");
+    span.className = "icon is-large";
+
+
+    
+    if (sender === "User") {
+      var icon = document.createElement("i");
+      
+      icon.className = "fa-solid fa-2x" + (sender === "User" ? " fa-user " : sender === "LLaVA-1.5 (Direct response)" ? " fa-robot " : sender === "LLaVA-1.5 (ECSO-caption)" ? " fa-shield" : sender === "LLaVA-1.5 (ECSO-response)" ? " fa-shield" : sender === "mPLUG-Owl2 (Direct response)" ? " fa-robot " : sender === "mPLUG-Owl2 (ECSO-caption)" ? " fa-shield" : sender === "mPLUG-Owl2 (ECSO-response)" ? " fa-shield" : sender === "Qwen-VL-Chat (Direct response)" ? " fa-robot " : sender === "Qwen-VL-Chat (ECSO-caption)" ? " fa-shield" : sender === "Qwen-VL-Chat (ECSO-response)" ? " fa-shield" : sender === "ShareGPT4V (Direct response)" ? " fa-robot " : sender === "ShareGPT4V (ECSO-caption)" ? " fa-shield" : sender === "ShareGPT4V (ECSO-response)" ? " fa-shield" : sender === "MiniGPT-4 (Direct response)" ? " fa-robot " : sender === "MiniGPT-4 (ECSO-caption)" ? " fa-shield" : sender === "MiniGPT-4 (ECSO-response)" ? " fa-shield" : "");
+    }
+    else {
+      var icon = document.createElement("img");
+      icon.className = "custom-icon"; // Add any desired classes for styling
+      icon.src = getIconSrc(sender); // Function to determine icon source based on sender
+    }
+
+    
+    var media = document.createElement("div");
+    media.className = "media-content";
+
+    var content = document.createElement("div");
+    content.className = "content";
+
+    var para = document.createElement("p");
+
+    // wrap text in pre tag to preserve whitespace and line breaks
+    var pre_text = document.createElement("pre");
+    pre_text.style = "background-color: white; font-size: 18px; font-family: Arial; padding: 0; margin: 0; white-space: pre-wrap; word-wrap: break-word;";
+    var paraText = document.createTextNode(text);
+    pre_text.appendChild(paraText);
+
+    var strong = document.createElement("strong");
+    strong.innerHTML = sender;
+    var br = document.createElement("br");
+
+    para.appendChild(strong);
+    para.appendChild(br);
+    
+
+    // Add image if imageSrc is provided
+    if (imageSrc) {
+        var img = document.createElement("img");
+        img.src = imageSrc;
+        img.style = "max-width: 700px; max-height: 800px;";
+        para.appendChild(img); // Append image first
+    }
+
+    // Add audio if audioSrc is provided
+    if (audioSrc) {
+        var audio = document.createElement("audio");
+        audio.controls = true;
+        audio.style = "display: block; margin-top: 10px auto;"; // Ensure audio is block-level and centered
+
+        var source = document.createElement("source");
+        source.src = audioSrc; // Ensure this points to your WAV file
+        source.type = "audio/wav"; // Set the correct type for WAV files
+
+        audio.appendChild(source);
+        para.appendChild(audio); // Append audio after the image
+    }
+    
+    if (transcription) {
+      // wrap text in pre tag to preserve whitespace and line breaks
+      var pre_trans = document.createElement("pre");
+      pre_trans.style = "background-color: white; font-size: 18px; font-family: Arial; padding: 0; margin: 0; white-space: pre-wrap; word-wrap: break-word;";
+      var paraTranscription = document.createTextNode(transcription);
+      pre_trans.appendChild(paraTranscription);
+      para.appendChild(pre_trans);
+    }
+
+    para.appendChild(pre_text);
+
+    content.appendChild(para);
+    media.appendChild(content);
+    span.appendChild(icon);
+    figure.appendChild(span);
+    if (sender !== "Description") {
+      article.appendChild(figure);
+    };
+    article.appendChild(media);
+    return article;
+  }
+
+  function getIconSrc(sender) {
+    switch (sender) {
+        case "User":
+            return ""; // Replace with your own image path
+        case "EMOVA":
+            return "./static/images/icons/emova.png"; // Default icon if no match
+        // Add cases for other senders with their corresponding image paths
+        default:
+            return ""; // Default icon if no match
+    }
+}
+
+  function addMessageToChatHistory(sender, message, imageSrc, audioSrc, transcription) {
+    const chatHistory = document.querySelector('.chat-history');
+    const chatRow = createChatRow(sender, message, imageSrc, audioSrc, transcription);
+    chatHistory.appendChild(chatRow);
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+  }
+
+  function addMessageToChatHistory1(sender, message, imageSrc, audioSrc, transcription) {
+    const chatHistory1 = document.querySelector('.chat-history1');
+    const chatRow1 = createChatRow(sender, message, imageSrc, audioSrc, transcription);
+    chatHistory1.appendChild(chatRow1);
+    chatHistory1.scrollTop = chatHistory1.scrollHeight;
+  }
+
+
+  function addMessageToChatHistory2(sender, message, imageSrc, audioSrc, transcription) {
+    const chatHistory2 = document.querySelector('.chat-history2');
+    const chatRow2 = createChatRow(sender, message, imageSrc, audioSrc, transcription);
+    chatHistory2.appendChild(chatRow2);
+    chatHistory2.scrollTop = chatHistory2.scrollHeight;
+  }
+
+  function clearChatHistory() {
+    const chatHistory = document.querySelector('.chat-history');
+    chatHistory.innerHTML = "";
+  }
+
+  function clearChatHistory1() {
+    const chatHistory1 = document.querySelector('.chat-history1');
+    chatHistory1.innerHTML = "";
+  }
+
+  function clearChatHistory2() {
+    const chatHistory2 = document.querySelector('.chat-history2');
+    chatHistory2.innerHTML = "";
+  }
+
+  // 
+  const conversations1 = [
+    {
+      "description": "poem_image",
+      "turns": [
+        ["User", "", "./static/images/emo/poem_image.png", "./static/audios/emo/poem_image_user.wav", "(transcript: Write a poem for this image.)"],
+        ["EMOVA", "", "", "./static/audios/emo/poem_image_emova.wav", `(transcript: In winter's chill, a sad face drawn, A frown of snow, a somber tone. The world is quiet, still, and cold, A canvas painted by the frost's cold. The eyes, two dots, the mouth, a line, A simple face, a symbol of decline. The snowflakes dance, they twirl and play, A fleeting moment, soon to fade away. But in this brief sketch, a story's told, Of winter's mood, of solitude, of cold. So let this face remind us all, In winter's chill, we find our call. To feel the frost, to feel the snow, To find the beauty in its woe.)`],
+      ]
+    },
+
+    {
+      "description": "offer",
+      "turns": [
+        ["User", "", "./static/images/emo/offer.png", "./static/audios/emo/offer_user.wav", "(transcript: I'm so happy I finally get my offer.)"],
+        ["EMOVA", "", "", "./static/audios/emo/offer_emova.wav", `(transcript: Congratulations on receiving your offer. This is a significant milestone in your academic journey. It's a testament to your hard work and dedication. I am thrilled for you and excited to see the impact you will make at northwestern university. Enjoy this moment and the opportunities that lie ahead.)`],
+      ]
+    },
+  ];
+
+
+  const conversations2 = [
+    {
+      "description": "vl_funny",
+      "turns": [
+        ["User", "Why is this image funny?", "./static/images/vl/meme_6.png"],
+        ["EMOVA", `The humor in this image comes from the juxtaposition of the woman's statement about going to sleep early and the fact that she is still awake at 2am, as indicated by the text. The woman's expression and the use of a smartphone in bed suggest that she might be scrolling through social media or engaging in some other activity that is keeping her awake. This contrast between her intention to sleep early and her current state of being awake creates a comedic effect, as it highlights a common human experience where plans don't always go as intended. The meme format, which typically presents a situation with an ironic or humorous twist, amplifies this effect by presenting the woman's situation in a relatable and exaggerated way.`],
+      ]
+    },
+
+    {
+      "description": "vl_cal",
+      "turns": [
+        ["User", `First please perform reasoning, and think step by step to provide best answer to the following question:
+What is the original price for pork belly before discount?`, "./static/images/vl/mmvet_1.png"],
+        ["EMOVA", `To find the original price of pork belly before the discount, we need to use the information provided in the image. The image shows that the price after a 30% discount is $9.80. This price represents 70% of the original price, since 100% - 30% = 70%. To find the original price, we can set up the equation:
+​
+70% of original price = $9.80
+​
+To solve for the original price, we can convert the percentage to a decimal and then divide:
+​
+0.70 * original price = $9.80
+​
+Now, divide both sides by 0.70 to isolate the original price:
+​
+original price = $9.80 / 0.70
+original price = $14
+​
+Therefore, the original price for pork belly before the discount was $14.`],
+      ]
+    },
+
+    {
+      "description": "vl_code",
+      "turns": [
+        ["User", "Convert this table to markdown format.", "./static/images/vl/example5.png"],
+        ["EMOVA", `| Teacher | Number of computers |                                                        
+|--------|----------------------|                                                                                                                                                                                                                                                                                                                                                              
+| Mr. Lim | 10                   |                                                                                                                    
+| Ms. Rojas | 10                 |                                                                                                                    
+| Mrs. Jensen | 4                  |                                                            
+| Ms. Cohen | 9                  |                                                                                                                    
+| Mr. Morales | 6                 |                                                            
+| Mrs. Rossi | 3                 |                                                                                                                    
+| Mr. Watson | 6                 |                                                            
+| Mr. Schmidt | 8                 |                                                                                                                    `],
+      ]
+    },
+
+    {
+      "description": "vl_geo",
+      "turns": [
+        ["User", `Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: The diagram at the right shows a right triangle with representations for two angles. What is the value of x?
+Choices:
+(A) 15
+(B) 20
+(C) 24
+(D) 30`, "./static/images/vl/example6.png"],
+        ["EMOVA", `The question asks for the value of $x$. The diagram shows that the two angles are complementary, so their measures add up to $90^{\circ}$. Therefore, $x+20+2 x+10=90$. Solve the equation by first combining like terms to get $3 x+30=90$. Subtract 30 from both sides to get $3 x=60$. Divide both sides by 3 to get $x=20$. The correct answer is B. So the answer is B
+Answer:B`],
+      ]
+    },
+
+    
+
+  ];
+
+  const conversations = [
+  {
+      "description": "doc4",
+      "turns": [
+        ["User", "", "./static/images/struc/doc_4.png", "./static/audios/struc/doc_4_input.wav", "(transcript: I am seeking a candidate. Can you briefly describe his condition for me?)"],
+        ["EMOVA", "", "", "./static/audios/struc/doc_4_output.wav", `(transcript: The candidate is a highly motivated and experienced professional in the field of technology and social media. He is known for his innovative approach to problem-solving and his ability to lead and manage teams. His strengths include leadership, innovation, and vision, which are crucial for driving strategic initiatives and fostering a forward-thinking culture. His skills in programming, entrepreneurship, leadership, and strategic planning demonstrate his capability to contribute significantly to a tech-oriented project or company. His achievements, such as founding Facebook and Internet.org, underscore his impact on the digital landscape and his ability to create platforms that connect billions of people worldwide.)`],
+      ]
+    },
+    {
+      "description": "doc1",
+      "turns": [
+        ["User", "", "./static/images/struc/doc_1.jpg", "./static/audios/struc/doc_1_input.wav", "(transcript: Based on the image, what is the growth rate for age over fifty-one?)                                                                                                                                                                                                        "],
+        ["EMOVA", "", "", "./static/audios/struc/doc_1_output.wav", `(transcript: The growth rate for the age group over fifty-one is four point two two percent.)`],
+      ]
+    },
+
+    {
+      "description": "doc2",
+      "turns": [
+        ["User", "", "./static/images/struc/doc_2.jpg", "./static/audios/struc/doc_2_input.wav", "(transcript: Give me the names of the main actors.)"],
+        ["EMOVA", "", "", "./static/audios/struc/doc_2_output.wav", `(transcript: The main actors featured on the poster are Vin Diesel, Michelle Rodriguez, Paul Walker, and Jordana Brewster. These actors are prominently displayed at the top of the poster, indicating their leading roles in the film.)`],
+      ]
+    },
+
+    
+    {
+      "description": "doc3",
+      "turns": [
+        ["User", "", "./static/images/struc/doc_3.png", "./static/audios/struc/doc_3_input.wav", "(transcript: According to the image, what are the ways to save water?)"],
+        ["EMOVA", "", "", "./static/audios/struc/doc_3_output.wav", `(transcript: The image lists three ways to save water: First, don't water your lawn at peak hours. Second, choose a shower over a bath. Third, wash your car only when needed.)`],
+      ]
+    },
+
+    {
+      "description": "doc5",
+      "turns": [
+        ["User", "", "./static/images/struc/chart_2.png", "./static/audios/struc/chart_2_input.wav", "(transcript: How internet coverage is changing in Finland?)"],
+        ["EMOVA", "", "", "./static/audios/struc/chart_2_output.wav", `(transcript: The percentage of households in Finland that have access to the internet has been steadily increasing over the years. In two thousand seven, only sixty-nine percent of households had internet access, but by two thousand twenty, this figure had risen to ninety-six percent. This indicates a significant growth in internet penetration in Finland, reflecting improvements in technology and infrastructure, as well as changes in lifestyle and work habits that require internet access for various purposes.)`],
+      ]
+    },
+    {
+      "description": "chart4",
+      "turns": [
+        ["User", "", "./static/images/struc/chart_4.png", "./static/audios/struc/chart_4_input.wav", "(transcript: Could you tell me how to use this website?)"],
+        ["EMOVA", "", "", "./static/audios/struc/chart_4_output.wav", `(transcript: To use this website, you would need to follow the instructions provided in the header section. It mentions to open a link, which presumably refers to the link provided in the header. After opening the link, you would then need to upload an image, enter text or record audio, and finally click the Chat button. The interface suggests that the website is designed for interactive communication, possibly for language modeling or chatbot development, where users can input text or audio and receive responses.)`],
+      ]
+    },
+
+  ];
+
+  // The current image index
+  let currentIndex = 0;
+
+  let currentIndex1 = 0;
+
+  let currentIndex2 = 0;
+
+  // The function to update the displayed chat history
+  function update_dialog_demo() {
+    // Clear the chat history
+    clearChatHistory();
+
+    for (let i = 0; i < conversations[currentIndex].turns.length; i++) {
+      if (conversations[currentIndex].turns[i].length == 2) {
+        addMessageToChatHistory(conversations[currentIndex].turns[i][0], conversations[currentIndex].turns[i][1]);
+      } else if (conversations[currentIndex].turns[i].length == 3) {
+        addMessageToChatHistory(conversations[currentIndex].turns[i][0], conversations[currentIndex].turns[i][1], conversations[currentIndex].turns[i][2]);
+      }
+      else {
+        addMessageToChatHistory(conversations[currentIndex].turns[i][0], conversations[currentIndex].turns[i][1], conversations[currentIndex].turns[i][2], conversations[currentIndex].turns[i][3], conversations[currentIndex].turns[i][4])
+      }
+    }
+
+    // scroll to the top of the chat history
+    document.querySelector('.chat-history').scrollTop = 0;
+  }
+
+
+
+  function update_dialog_demo1() {
+    // Clear the chat history
+    clearChatHistory1();
+
+    for (let i = 0; i < conversations1[currentIndex1].turns.length; i++) {
+      if (conversations1[currentIndex1].turns[i].length == 2) {
+        addMessageToChatHistory1(conversations1[currentIndex1].turns[i][0], conversations1[currentIndex1].turns[i][1]);
+      } else if (conversations1[currentIndex1].turns[i].length == 3) {
+        addMessageToChatHistory1(conversations1[currentIndex1].turns[i][0], conversations1[currentIndex1].turns[i][1], conversations1[currentIndex1].turns[i][2]);
+      }
+      else {
+        addMessageToChatHistory1(conversations1[currentIndex1].turns[i][0], conversations1[currentIndex1].turns[i][1], conversations1[currentIndex1].turns[i][2], conversations1[currentIndex1].turns[i][3], conversations1[currentIndex1].turns[i][4])
+      }
+    }
+
+    // scroll to the top of the chat history
+    document.querySelector('.chat-history1').scrollTop = 0;
+  }
+
+  function update_dialog_demo2() {
+    // Clear the chat history
+    clearChatHistory2();
+
+    for (let i = 0; i < conversations2[currentIndex2].turns.length; i++) {
+      if (conversations2[currentIndex2].turns[i].length == 2) {
+        addMessageToChatHistory2(conversations2[currentIndex2].turns[i][0], conversations2[currentIndex2].turns[i][1]);
+      } else if (conversations2[currentIndex2].turns[i].length == 3) {
+        addMessageToChatHistory2(conversations2[currentIndex2].turns[i][0], conversations2[currentIndex2].turns[i][1], conversations2[currentIndex2].turns[i][2]);
+      }
+      else {
+        addMessageToChatHistory2(conversations2[currentIndex2].turns[i][0], conversations2[currentIndex2].turns[i][1], conversations2[currentIndex2].turns[i][2], conversations2[currentIndex2].turns[i][3], conversations2[currentIndex2].turns[i][4])
+      }
+    }
+
+    // scroll to the top of the chat history
+    document.querySelector('.chat-history2').scrollTop = 0;
+  }
+
+  // Initialize the displayed image
+  update_dialog_demo();
+  update_dialog_demo1();
+  update_dialog_demo2();
+
+  // Event listeners for the buttons
+  document.getElementById('prev-question').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + conversations.length) % conversations.length;
+    update_dialog_demo();
+  });
+
+  document.getElementById('prev-question1').addEventListener('click', () => {
+    currentIndex1 = (currentIndex1 - 1 + conversations1.length) % conversations1.length;
+    update_dialog_demo1();
+  });
+
+  document.getElementById('prev-question2').addEventListener('click', () => {
+    currentIndex2 = (currentIndex2 - 1 + conversations2.length) % conversations2.length;
+    update_dialog_demo2();
+  });
+
+  document.getElementById('next-question').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % conversations.length;
+    update_dialog_demo();
+  });
+
+  document.getElementById('next-question1').addEventListener('click', () => {
+    currentIndex1 = (currentIndex1 + 1) % conversations1.length;
+    update_dialog_demo1();
+  });
+
+  document.getElementById('next-question2').addEventListener('click', () => {
+    currentIndex2 = (currentIndex2 + 1) % conversations2.length;
+    update_dialog_demo2();
+  });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <!-- <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a> -->
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+          </p><center>The website template was adapted from <a href="https://nerfies.github.io/">Nerfies</a>. We thank the authors for sharing the templates.</center>
+        <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
