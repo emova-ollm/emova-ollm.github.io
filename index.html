@@ -91,7 +91,8 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title"> <img id="teaser" width="10%" src="./static/images/icons/emova.png"> <b>EMOVA:</b>  </h1>
           <h3 class="title is-3 publication-title"> Empowering Language Models to See, Hear and Speak </h3>
-          <h2 class="title is-3 publication-title"> with Vivid Emotions   </h2>
+          <h3 class="title is-3 publication-title"> with Vivid Emotions </h3>
+          <h5 class="title is-4 publication-title"> <span style="color:red">CVPR 2025</span> </h5>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://kaichen1998.github.io/">Kai Chen</a><sup>1*</sup>,</span>
@@ -147,7 +148,7 @@
             <span class="author-block">
               <a href="https://houlu369.github.io/">Lu Hou</a><sup>3&#8224</sup>,</span>
             <span class="author-block">
-              <a href="https://xuhangcn.github.io/">Hang Xu</a><sup>3&#8224</sup>,</span>
+              <a href="https://xuhangcn.github.io/">Hang Xu</a><sup>3&#8224</sup></span>
           </div>
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Hong Kong University of Science and Technology,</span>
@@ -175,6 +176,46 @@
                   <span>arXiv</span>
                 </a>
               </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/emova-ollm/EMOVA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Demo Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/Emova-ollm/EMOVA-demo" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-images"></i>
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/collections/Emova-ollm/emova-datasets-67779be7d02447a2d0891bf6" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <!-- Model Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/collections/Emova-ollm/emova-models-67779d377bb8261e6057a320" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-share-square"></i>
+                  </span>
+                  <span>Model</span>
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -184,6 +225,23 @@
 </section>
 
 <section class="section" style="background-color: #f1f1f1;">
+  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 80%;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">News</h2>
+      </div>
+    </div>
+    <!-- <div style="height:200px;overflow-y:auto"> -->
+    <div style="overflow-y:auto">
+      <li> <b>[2025.03]</b> 🔥 We have released EMOVA's code (training & inference), datasets (training & evaluation), and checkpoints (EMOVA-3B/7B/72B)!
+      </li>
+      <li> <b>[2025.02]</b> 🔥 Our EMOVA paper has been accepted by CVPR 2025!
+      </li>
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 80%;">
     <div class="columns is-centered has-text-centered">
         <div class="column is-six-fifths">
@@ -198,7 +256,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="background-color: #f1f1f1;">
     <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 80%;">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -227,7 +285,7 @@
 </section>
 
 
-<section class="section" style="background-color: #f1f1f1;">
+<section class="section">
   <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 80%;">
     <!-- conflicts. -->
     <div class="columns is-centered has-text-centered">
@@ -248,18 +306,22 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="background-color: #f1f1f1;">
     <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 80%;">
         <div class="columns is-centered has-text-centered">
           <div class="column is-five-fifths">
-            <h2 class="title is-3">State-of-the-art Vision-language & Speech Abilties</h2>
+            <h2 class="title is-3">State-of-the-art Omni-modal Capabilties</h2>
+        <div class="teaser">
+          <img width="45%" src="./static/images/radar.png">
+        </div>
+        <br/>
         <div class="teaser">
           <img src="./static/images/exp.PNG">
         </div>
         <p><br/></p>
         <div class="content has-text-justified">
           <p>
-            1) EMOVA surpasses GPT-4V and Gemini Pro 1.5 on 10 of 14 vision-language benchmarks, while reaching over 95% of GPT-4o performance on nearly all benchmarks. 2) EMOVA achieves state-of-the-art performance on the ASR task, surpassing its speech counterparts by a significant margin. <br>
+            1) EMOVA outperforms GPT-4o/4V and Gemini Pro 1.5 on 11 of 14 vision-language benchmarks, providing a powerful open-sourced alternative. 2) EMOVA achieves state-of-the-art performance on on Librispeech, surpassing its speech and omni-modal counterparts significantly. <br>
           </p>
         </div>
       </div>
@@ -267,7 +329,7 @@
   </div>
 </section>
 
-<section class="section" style="background-color: #f1f1f1;">
+<section class="section">
   <div class="columns is-centered has-text-centered">
     <div class="column is-six-fifths">
       <h2 class="title is-3">Vivid Emotional Control</h2>
@@ -315,7 +377,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="background-color: #f1f1f1;">
   <div class="columns is-centered has-text-centered">
     <div class="column is-six-fifths">
       <h2 class="title is-3">Omni-modal Emotional Spoken Dialogues</h2>
@@ -347,7 +409,7 @@
   </div>
 </section>
 
-<section class="section" style="background-color: #f1f1f1;">
+<section class="section">
   <div class="columns is-centered has-text-centered">
     <div class="column is-six-fifths">
       <h2 class="title is-3">Omni-modal Dialogue with Structural Data Understanding</h2>
@@ -379,7 +441,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="background-color: #f1f1f1;">
   <div class="columns is-centered has-text-centered">
     <div class="column is-six-fifths">
       <h2 class="title is-3">Advanced Vision-language Abilities</h2>
@@ -414,7 +476,7 @@
   </div>
 </section>
 
-<section class="section" id="BibTeX" style="background-color: #f1f1f1;">
+<section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{chen2024emova,
